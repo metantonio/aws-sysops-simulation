@@ -557,7 +557,7 @@ Your AWS SSO integration with Okta fails during an outage. Engineers **can’t l
 ✅ **S3 Inventory + Lifecycle Policies for Storage Optimization**  
 ✅ **Secrets Manager for Break-Glass Access**  
 
-## **24. AWS SysOps Scenarios: Templates & Configuration Management**
+### **24. AWS SysOps Scenarios: Templates & Configuration Management**
 
 **Scenario 24: Standardizing EC2 Deployments with Launch Templates**
 
