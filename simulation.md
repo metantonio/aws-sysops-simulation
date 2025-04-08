@@ -557,4 +557,130 @@ Your AWS SSO integration with Okta fails during an outage. Engineers **can’t l
 ✅ **S3 Inventory + Lifecycle Policies for Storage Optimization**  
 ✅ **Secrets Manager for Break-Glass Access**  
 
+## **24. AWS SysOps Scenarios: Templates & Configuration Management**
+
+**Scenario 24: Standardizing EC2 Deployments with Launch Templates**
+
+Problem:
+
+A large financial company has 100+ development teams deploying EC2 instances with inconsistent configurations. Some teams use over-provisioned instances, while others forget critical security settings, leading to compliance violations.
+
+Challenge:
+
+How do you enforce consistent EC2 configurations across teams?
+How do you ensure security patches are applied automatically?
+
+**Exam-Style Question**:
+
+How can you ensure all EC2 instances have SSM Agent installed?
+
+A) Email a checklist to developers
+B) Use a Launch Template with user data to install SSM Agent
+C) Manually audit instances weekly
+D) Block all EC2 API calls
+
+Answer: B) Launch Template with user data
+
+Ensures automated, consistent configuration.
+
+**Solution:**
+
+Create an AWS Launch Template with:
+Approved AMI (hardened by security team)
+Required IAM role (SSM-ManagedInstance)
+User data to install the SSM Agent
+Tags for cost allocation (Department, Environment)
+Restrict EC2 launches using IAM policies:
+```json
+{
+  "Effect": "Deny",
+  "Action": "ec2:RunInstances",
+  "Resource": "*",
+  "Condition": {
+    "Null": {
+      "ec2:LaunchTemplateId": "true"
+    }
+  }
+}
+```
+(Forces teams to use the approved template.)
+Automate patching with AWS Systems Manager Patch Manager.
+
+**Scenario 25: Drift Detection with AWS Config**
+
+Problem:
+
+A healthcare company must comply with HIPAA. Auditors found manually modified security groups that violate policies (e.g., port 22 open to 0.0.0.0/0).
+
+Challenge:
+
+How do you detect and remediate configuration drift?
+How do you prevent future violations?
+
+**Exam-Style Question:**
+
+Which AWS service detects unauthorized security group changes?
+
+A) AWS Trusted Advisor
+B) AWS Config
+C) AWS Shield
+D) Amazon GuardDuty
+
+Answer: B) AWS Config
+
+Tracks configuration history and detects drift.
+
+**Solution:**
+
+Enable AWS Config with managed rules:
+restricted-ssh (checks for open SSH access)
+ec2-instance-no-public-ip (blocks public IPs)
+Set up automatic remediation:
+Trigger a Lambda function to revoke insecure SG rules.
+Use AWS Systems Manager Automation to revert changes.
+Enforce compliance with SCPs (Service Control Policies):
+```json
+{
+  "Effect": "Deny",
+  "Action": "ec2:AuthorizeSecurityGroupIngress",
+  "Resource": "*",
+  "Condition": {
+    "IpAddress": {"aws:SourceIp": "0.0.0.0/0"}
+  }
+}
+```
+
+**Scenario 26: Multi-Account CloudFormation StackSets**
+
+Problem:
+
+An enterprise uses 50+ AWS accounts (dev/test/prod). The networking team needs to deploy VPCs consistently with identical:
+
+CIDR ranges
+NAT Gateway configurations
+Flow Logs settings
+Challenge:
+
+How do you deploy standardized VPCs across all accounts?
+How do you update configurations without manual work?
+
+**Exam-Style Question:**
+
+How can you deploy a VPC template to 50+ accounts?
+
+A) Manually log in to each account
+B) Use AWS CloudFormation StackSets
+C) Share the template via S3
+D) Use AWS Quick Starts
+
+Answer: B) CloudFormation StackSets
+
+One-to-many deployment with centralized management.
+
+**Solution:**
+
+Create a CloudFormation template defining the VPC (subnets, route tables, etc.).
+Deploy via StackSets to all accounts in the OU (Organizational Unit).
+Enable automatic drift detection in StackSets.
+
 
