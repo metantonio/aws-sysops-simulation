@@ -1,3 +1,5 @@
+You will find 3 levels of diffculty: concept, advanced, expert
+
 # Scenarios (concept difficulty)
 
 ## Monitoring and Reporting
