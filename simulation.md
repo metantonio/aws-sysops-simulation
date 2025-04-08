@@ -173,7 +173,7 @@ Spot Instances provide up to 90% discount but can be interrupted.
 
 ## 12. Cross-Account Access & Permissions
 
-Scenario:
+**Scenario:**
 
 Your company uses multiple AWS accounts (Dev, Prod, Logging). A developer in the Dev account needs read-only access to S3 buckets in the Prod account, but must not have any other permissions.
 
@@ -181,12 +181,8 @@ Challenge:
 
 How do you grant least-privilege access without using IAM users?
 How do you ensure the Prod account’s S3 buckets are secure?
-Solution Steps:
 
-Create an IAM Role in the Prod account with an S3 read-only policy.
-Modify the S3 bucket policy in Prod to trust the Dev account.
-Grant AssumeRole permissions to the Dev account’s IAM users/roles.
-Exam-Style Question:
+**Exam-Style Question:**
 
 What is the most secure way to grant cross-account S3 access?
 
@@ -201,9 +197,15 @@ Never share credentials (A).
 SCPs (C) restrict permissions but don’t grant access.
 Replication (D) copies data but doesn’t grant permissions.
 
+**Solution Steps:**
+
+Create an IAM Role in the Prod account with an S3 read-only policy.
+Modify the S3 bucket policy in Prod to trust the Dev account.
+Grant AssumeRole permissions to the Dev account’s IAM users/roles.
+
 ## 13. VPC Flow Logs & Security Investigation
 
-Scenario:
+**Scenario:**
 
 A sudden spike in traffic is causing high costs. You suspect a misconfigured Security Group is allowing unintended access.
 
@@ -211,14 +213,8 @@ Challenge:
 
 How do you identify which IPs are flooding traffic?
 How do you block malicious traffic without downtime?
-Solution Steps:
 
-Enable VPC Flow Logs (sent to S3 or CloudWatch Logs).
-Analyze logs (using Athena or CloudWatch Insights) for:
-High-volume unexpected IPs.
-Unusual ports/protocols.
-Update Security Groups/NACLs to block bad actors.
-Exam-Style Question:
+**Exam-Style Question:**
 
 Which AWS service helps analyze VPC Flow Logs for suspicious traffic?
 
@@ -233,9 +229,17 @@ Athena can query Flow Logs stored in S3.
 GuardDuty (A) detects threats but doesn’t analyze Flow Logs directly.
 WAF (C) protects web apps, not VPC traffic.
 
+**Solution Steps:**
+
+Enable VPC Flow Logs (sent to S3 or CloudWatch Logs).
+Analyze logs (using Athena or CloudWatch Insights) for:
+High-volume unexpected IPs.
+Unusual ports/protocols.
+Update Security Groups/NACLs to block bad actors.
+
 ## 14. RDS Performance Troubleshooting
 
-Scenario:
+**Scenario:**
 
 Your Aurora PostgreSQL database is slow. CloudWatch shows high CPU and ReadLatency.
 
@@ -243,14 +247,8 @@ Challenge:
 
 Is it a query issue or resource bottleneck?
 How do you fix it without scaling up immediately?
-Solution Steps:
 
-Check Performance Insights for:
-Top slow queries.
-Locks or deadlocks.
-Optimize queries (add indexes, fix N+1 queries).
-Enable Read Replicas to offload read traffic.
-Exam-Style Question:
+**Exam-Style Question:**
 
 What is the first tool to diagnose Aurora performance issues?
 
@@ -264,9 +262,17 @@ Answer: B) RDS Performance Insights
 Provides query-level insights.
 CloudTrail (A) logs API calls, not DB performance.
 
+**Solution Steps:**
+
+Check Performance Insights for:
+Top slow queries.
+Locks or deadlocks.
+Optimize queries (add indexes, fix N+1 queries).
+Enable Read Replicas to offload read traffic.
+
 ## 15. Lambda Cold Starts in Production
 
-Scenario:
+**Scenario:**
 
 A serverless payment API (Lambda + API Gateway) has 5-second delays on first requests.
 
@@ -274,12 +280,8 @@ Challenge:
 
 How do you reduce cold starts without over-provisioning?
 Should you switch to EC2?
-Solution Steps:
 
-Use Provisioned Concurrency (keeps Lambdas warm).
-Optimize runtime (smaller deployment packages, faster languages like Go).
-Check memory allocation (higher memory = faster CPU).
-Exam-Style Question:
+**Exam-Style Question:**
 
 Which feature reduces Lambda cold starts?
 
@@ -293,9 +295,15 @@ Answer: B) Provisioned Concurrency
 Keeps functions initialized.
 Fargate (A) is for containers, not Lambda.
 
+**Solution Steps:**
+
+Use Provisioned Concurrency (keeps Lambdas warm).
+Optimize runtime (smaller deployment packages, faster languages like Go).
+Check memory allocation (higher memory = faster CPU).
+
 ## 16. Cost Explosion from Orphaned EBS Volumes
 
-Scenario:
+**Scenario:**
 
 Your AWS bill suddenly increased by $3,000/month. Cost Explorer shows unused EBS volumes.
 
@@ -303,15 +311,8 @@ Challenge:
 
 How do you find and delete unattached volumes?
 How do you prevent this in the future?
-Solution Steps:
 
-AWS CLI command to list orphaned volumes:
-bash
-Copy
-aws ec2 describe-volumes --filters Name=status,Values=available  
-Automate cleanup with Lambda + CloudWatch Events.
-Enable AWS Budgets alerts for unexpected costs.
-Exam-Style Question:
+**Exam-Style Question:**
 
 How do you prevent orphaned EBS volumes?
 
@@ -325,9 +326,18 @@ Answer: B) Set up a Lambda to delete unattached volumes
 Automates cleanup (better than manual checks).
 AWS Backup (D) manages backups, not cost control.
 
+**Solution Steps:**
+
+AWS CLI command to list orphaned volumes:
+bash
+Copy
+aws ec2 describe-volumes --filters Name=status,Values=available  
+Automate cleanup with Lambda + CloudWatch Events.
+Enable AWS Budgets alerts for unexpected costs.
+
 ## 17: Multi-Region DNS Failover
 
-Scenario:
+**Scenario:**
 
 Your primary region (us-east-1) goes down. Users must automatically failover to eu-west-1.
 
@@ -335,10 +345,7 @@ Challenge:
 
 How do you route traffic without manual changes?
 How do you test failover safely?
-Solution:
 
-Route 53 Health Checks + Failover Routing Policy.
-Simulate failure by disabling Health Checks.
 Exam-Style Question:
 
 Which Route 53 routing policy is best for DR?
@@ -360,6 +367,10 @@ Key Takeaways for Senior SysOps:
 ✅ Automate EBS cleanup to avoid cost leaks
 ✅ Route 53 Failover for multi-region HA
 
+**Solution:**
+
+Route 53 Health Checks + Failover Routing Policy.
+Simulate failure by disabling Health Checks.
 
 # Scenarios (Expert defficulty)
 
