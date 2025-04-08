@@ -557,7 +557,7 @@ Your AWS SSO integration with Okta fails during an outage. Engineers **can’t l
 ✅ **S3 Inventory + Lifecycle Policies for Storage Optimization**  
 ✅ **Secrets Manager for Break-Glass Access**  
 
-### **24. AWS SysOps Scenarios: Templates & Configuration Management**
+## **24. AWS SysOps Scenarios: Templates & Configuration Management**
 
 **Scenario 24: Standardizing EC2 Deployments with Launch Templates**
 
@@ -574,10 +574,10 @@ How do you ensure security patches are applied automatically?
 
 How can you ensure all EC2 instances have SSM Agent installed?
 
-A) Email a checklist to developers
-B) Use a Launch Template with user data to install SSM Agent
-C) Manually audit instances weekly
-D) Block all EC2 API calls
+  - A) Email a checklist to developers
+  - B) Use a Launch Template with user data to install SSM Agent
+  - C) Manually audit instances weekly
+  - D) Block all EC2 API calls
 
 Answer: B) Launch Template with user data
 
@@ -621,10 +621,10 @@ How do you prevent future violations?
 
 Which AWS service detects unauthorized security group changes?
 
-A) AWS Trusted Advisor
-B) AWS Config
-C) AWS Shield
-D) Amazon GuardDuty
+  - A) AWS Trusted Advisor
+  - B) AWS Config
+  - C) AWS Shield
+  - D) Amazon GuardDuty
 
 Answer: B) AWS Config
 
@@ -668,10 +668,10 @@ How do you update configurations without manual work?
 
 How can you deploy a VPC template to 50+ accounts?
 
-A) Manually log in to each account
-B) Use AWS CloudFormation StackSets
-C) Share the template via S3
-D) Use AWS Quick Starts
+  - A) Manually log in to each account
+  - B) Use AWS CloudFormation StackSets
+  - C) Share the template via S3
+  - D) Use AWS Quick Starts
 
 Answer: B) CloudFormation StackSets
 
