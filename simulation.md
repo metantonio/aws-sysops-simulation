@@ -2,7 +2,7 @@
 
 ## Monitoring and Reporting
 
-1. CloudWatch for Production Alerts
+**1. CloudWatch for Production Alerts**
 
 Scenario: Your company's e-commerce platform experiences intermittent slowdowns during peak hours. The operations team needs to track performance metrics and set up automated alerts when CPU utilization exceeds 80%.
 
@@ -30,7 +30,7 @@ Question: Why isn’t memory utilization visible in CloudWatch?
 Answer: D) CloudWatch doesn’t monitor memory usage by default
 You must install the CloudWatch agent to collect custom metrics like memory usage.
 
-3. Rapid Response to API Failures
+**3. Rapid Response to API Failures**
 
 Scenario: Your finance team reports failed API calls when processing transactions. You need to track all AWS API activity to identify the root cause.
 
@@ -46,7 +46,7 @@ CloudTrail records all AWS API activity, helping audit and troubleshoot issues.
 
 ## High Availability & Disaster Recovery
 
-4. Multi-AZ Database Failover
+**4. Multi-AZ Database Failover**
 
 Scenario: Your company’s customer database must remain available even during an AZ failure. The current RDS setup runs in a single Availability Zone.
 
@@ -60,7 +60,7 @@ Question: Which RDS configuration ensures automatic failover in case of an outag
 Answer: B) RDS Multi-AZ Deployment
 Multi-AZ deployments maintain a standby replica in another AZ for automatic failover.
 
-5. Auto Scaling Misconfiguration
+**5. Auto Scaling Misconfiguration**
 
 Scenario: Your web application scales up during traffic spikes but fails to scale down, leading to unnecessary costs.
 
@@ -76,7 +76,7 @@ Auto Scaling requires scaling policies (e.g., CPU-based or request-based) to sca
 
 ## Security & Compliance
 
-6. Accidental S3 Bucket Exposure
+**6. Accidental S3 Bucket Exposure**
 
 Scenario: A developer mistakenly sets an S3 bucket to public, exposing sensitive customer data.
 
@@ -90,7 +90,7 @@ Question: Which AWS service can automatically detect and remediate this misconfi
 Answer: A) AWS Config with auto-remediation rules
 AWS Config can detect non-compliant resources (like public S3 buckets) and trigger automated fixes.
 
-7. Unauthorized SSH Access
+**7. Unauthorized SSH Access**
 
 Scenario: An EC2 instance is compromised due to an exposed SSH key.
 
@@ -106,7 +106,7 @@ IAM roles eliminate the need for storing SSH keys on instances.
 
 ## Networking & Troubleshooting
 
-8. Private Subnet Internet Access
+**8. Private Subnet Internet Access**
 
 Scenario: An application in a private subnet cannot download security updates from the internet.
 
@@ -120,7 +120,7 @@ Question: What is the most likely missing component?
 Answer: B) NAT Gateway
 Private subnets require a NAT Gateway to access the internet while remaining secure.
 
-9. VPC Traffic Blocked Unexpectedly
+**9. VPC Traffic Blocked Unexpectedly**
 
 Scenario: A developer reports that traffic between two subnets is being blocked.
 
@@ -136,7 +136,7 @@ Network ACLs (stateless) can block traffic at the subnet level, unlike Security 
 
 ## Cost Optimization
 
-10. Unexpected Spike in AWS Bill
+**10. Unexpected Spike in AWS Bill**
 
 Scenario: Your AWS costs suddenly increased by 40% last month.
 
@@ -153,7 +153,7 @@ Cost Explorer visualizes spending trends.
 Trusted Advisor flags underutilized resources.
 Budgets alert when costs exceed thresholds.
 
-11. Reducing Costs for Batch Processing
+**11. Reducing Costs for Batch Processing**
 
 Scenario: Your nightly data processing job can tolerate interruptions.
 
@@ -169,7 +169,7 @@ Spot Instances provide up to 90% discount but can be interrupted.
 
 # Scenarios (Advanced difficulty)
 
-## 1. Cross-Account Access & Permissions
+## 12. Cross-Account Access & Permissions
 
 Scenario:
 
@@ -199,7 +199,7 @@ Never share credentials (A).
 SCPs (C) restrict permissions but don’t grant access.
 Replication (D) copies data but doesn’t grant permissions.
 
-## 2. VPC Flow Logs & Security Investigation
+## 13. VPC Flow Logs & Security Investigation
 
 Scenario:
 
@@ -231,7 +231,7 @@ Athena can query Flow Logs stored in S3.
 GuardDuty (A) detects threats but doesn’t analyze Flow Logs directly.
 WAF (C) protects web apps, not VPC traffic.
 
-## 3. RDS Performance Troubleshooting
+## 14. RDS Performance Troubleshooting
 
 Scenario:
 
@@ -262,7 +262,7 @@ Answer: B) RDS Performance Insights
 Provides query-level insights.
 CloudTrail (A) logs API calls, not DB performance.
 
-## 4. Lambda Cold Starts in Production
+## 15. Lambda Cold Starts in Production
 
 Scenario:
 
@@ -291,7 +291,7 @@ Answer: B) Provisioned Concurrency
 Keeps functions initialized.
 Fargate (A) is for containers, not Lambda.
 
-## 5. Cost Explosion from Orphaned EBS Volumes
+## 16. Cost Explosion from Orphaned EBS Volumes
 
 Scenario:
 
@@ -323,7 +323,7 @@ Answer: B) Set up a Lambda to delete unattached volumes
 Automates cleanup (better than manual checks).
 AWS Backup (D) manages backups, not cost control.
 
-## Final Challenge: Multi-Region DNS Failover
+## 17: Multi-Region DNS Failover
 
 Scenario:
 
@@ -366,7 +366,7 @@ Key Takeaways for Senior SysOps:
 
 ---  
 
-## **1. IAM Policy Bloat in a 10,000-User Organization**  
+## **18. IAM Policy Bloat in a 10,000-User Organization**  
 
 ### **Scenario:**  
 A Fortune 500 company has **5,000+ IAM users** across 50 AWS accounts. Engineers complain about **slow IAM policy evaluations**, and auditors report **overly permissive policies** (`"Action": "*"`).  
@@ -400,7 +400,7 @@ A Fortune 500 company has **5,000+ IAM users** across 50 AWS accounts. Engineers
 4. **Automate policy reviews** with AWS Config rules.  
 ---  
 
-## **2. Cost Explosion from Unoptimized EC2 Fleets**  
+## **19. Cost Explosion from Unoptimized EC2 Fleets**  
 
 ### **Scenario:**  
 A global SaaS company has **5,000+ EC2 instances** running 24/7. The CFO demands a **30% cost reduction** without performance impact.  
@@ -427,7 +427,7 @@ A global SaaS company has **5,000+ EC2 instances** running 24/7. The CFO demands
 
 
 
-## **3. Database Scaling for a High-Traffic E-Commerce Site**  
+## **20. Database Scaling for a High-Traffic E-Commerce Site**  
 
 ### **Scenario:**  
 During Black Friday, your **Aurora PostgreSQL** database **fails over repeatedly** due to connection spikes.  
@@ -452,7 +452,7 @@ During Black Friday, your **Aurora PostgreSQL** database **fails over repeatedly
 2. **Enable Aurora Serverless v2** for autoscaling.  
 3. **Implement caching** with **Amazon ElastiCache (Redis)**.  
 
-## **4. Multi-Account VPC Peering Chaos**  
+## **21. Multi-Account VPC Peering Chaos**  
 
 ### **Scenario:**  
 Your company has **50+ VPCs** across 10 AWS accounts. Engineers report **routing conflicts** and **overlapping CIDR blocks**.  
@@ -488,7 +488,7 @@ Your company has **50+ VPCs** across 10 AWS accounts. Engineers report **routing
 
 ---  
 
-## **5. S3 Cost Leakage from Millions of Objects**  
+## **22. S3 Cost Leakage from Millions of Objects**  
 
 ### **Scenario:**  
 A media company stores **500+ TB of S3 data**. The finance team notices **unexpected "ListBucket" API costs**.  
@@ -512,7 +512,7 @@ A media company stores **500+ TB of S3 data**. The finance team notices **unexpe
 2. **Implement lifecycle policies** to transition to **S3 Intelligent-Tiering**.  
 3. **Use S3 Batch Operations** to delete millions of files. 
 
-## **6. SSO Break-Glass Access for Critical Outages**  
+## **23. SSO Break-Glass Access for Critical Outages**  
 
 ### **Scenario:**  
 Your AWS SSO integration with Okta fails during an outage. Engineers **can’t log in** to fix the issue.  
