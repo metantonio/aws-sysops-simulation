@@ -557,4 +557,4 @@ Your AWS SSO integration with Okta fails during an outage. Engineers **can’t l
 ✅ **S3 Inventory + Lifecycle Policies for Storage Optimization**  
 ✅ **Secrets Manager for Break-Glass Access**  
 
-Need **more depth** on any scenario? (e.g., debugging TGW route tables, automating S3 lifecycle policies) 🚀
+
