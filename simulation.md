@@ -6,10 +6,10 @@ Scenario: Your company's e-commerce platform experiences intermittent slowdowns 
 
 Question: Which AWS service should you use to collect metrics, monitor logs, and trigger alarms when thresholds are breached?
 
-A) AWS CloudTrail
-B) Amazon Inspector
-C) Amazon CloudWatch
-D) AWS Config
+-A) AWS CloudTrail
+-B) Amazon Inspector
+-C) Amazon CloudWatch
+-D) AWS Config
 Answer: C) Amazon CloudWatch
 CloudWatch provides real-time monitoring, log analysis, and alarm triggering for AWS resources.
 
