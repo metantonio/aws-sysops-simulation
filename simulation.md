@@ -559,7 +559,7 @@ Your AWS SSO integration with Okta fails during an outage. Engineers **can’t l
 
 ## **24. AWS SysOps Scenarios: Templates & Configuration Management**
 
-**Scenario 24: Standardizing EC2 Deployments with Launch Templates**
+### **Scenario 24: Standardizing EC2 Deployments with Launch Templates**
 
 Problem:
 
@@ -606,7 +606,7 @@ Restrict EC2 launches using IAM policies:
 (Forces teams to use the approved template.)
 Automate patching with AWS Systems Manager Patch Manager.
 
-**Scenario 25: Drift Detection with AWS Config**
+### **Scenario 25: Drift Detection with AWS Config**
 
 Problem:
 
@@ -650,7 +650,7 @@ Enforce compliance with SCPs (Service Control Policies):
 }
 ```
 
-**Scenario 26: Multi-Account CloudFormation StackSets**
+### **Scenario 26: Multi-Account CloudFormation StackSets**
 
 Problem:
 
