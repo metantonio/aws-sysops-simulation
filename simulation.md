@@ -329,9 +329,9 @@ AWS Backup (D) manages backups, not cost control.
 **Solution Steps:**
 
 AWS CLI command to list orphaned volumes:
-bash
-Copy
-aws ec2 describe-volumes --filters Name=status,Values=available  
+```bash
+aws ec2 describe-volumes --filters Name=status,Values=available
+```
 Automate cleanup with Lambda + CloudWatch Events.
 Enable AWS Budgets alerts for unexpected costs.
 
