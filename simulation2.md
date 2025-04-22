@@ -127,7 +127,7 @@ A company is hosting applications on Amazon EC2 instances. The company is hostin
    - D. Patch the database with SSL/TLS by using a custom PostgreSQL extension. 
 
 Answer: C
-Explanation:https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Concepts.General.SSL.htmAmazon RDS supports SSL/TLS encryption for connections to the database, and this canbe enabled by creating a custom parameter group and setting the rds.force_ssl parameterto 1. This will ensure that all connections to the database are encrypted, protecting the dataand maintaining compliance with the company's requirements.l 
+Explanation:https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Concepts.General.SSL.htm Amazon RDS supports SSL/TLS encryption for connections to the database, and this canbe enabled by creating a custom parameter group and setting the rds.force_ssl parameterto 1. This will ensure that all connections to the database are encrypted, protecting the dataand maintaining compliance with the company's requirements.l 
 
 
 ## Question # 12
