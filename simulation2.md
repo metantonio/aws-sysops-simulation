@@ -3,10 +3,10 @@
 ## Question # 1
 A SysOps administrator creates two VPCs, VPC1 and VPC2, in a company’s AWS accountThe SysOps administrator deploys a Linux Amazon EC2 instance in VPC1 and deploys anAmazon RDS for MySQL DB instance in VPC2. The DB instance is deployed in a privatesubnet. An application that runs on the EC2 instance needs to connect to the database.What should the SysOps administrator do to give the EC2 instance the ability to connect tothe database?
 
-A. Enter the DB instance connection string into the VPC1 route table.
-B. Configure VPC peering between the two VPCs.
-C. Add the same IPv4 CIDR range for both VPCs.
-D. Connect to the DB instance by using the DB instance’s public IP address. 
+   - A. Enter the DB instance connection string into the VPC1 route table.
+   - B. Configure VPC peering between the two VPCs.
+   - C. Add the same IPv4 CIDR range for both VPCs.
+   - D. Connect to the DB instance by using the DB instance’s public IP address. 
 
 Answer: B
 Explanation:VPC peering allows two VPCs to communicate with each other securely. By configuringVPC peering between the two VPCs, the SysOps administrator will be able to give the EC2instance in VPC1 the ability to connect to the database in VPC2. Once the VPC peering isconfigured, the EC2 instance will be able to communicate with the database using theprivate IP address of the DB instance in the private subnet. 
